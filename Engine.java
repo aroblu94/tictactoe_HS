@@ -13,6 +13,10 @@ public class Engine {
 	t.set(p2.getMovement(), p2.getSign());
     }
     
+    public Table getTable() {
+        return this.t;
+    }
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

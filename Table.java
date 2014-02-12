@@ -16,6 +16,21 @@ public class Table {
 	}
     }
     
+    public boolean isFull() {
+        boolean out = true;
+	
+	for (Sign[] row : this.matrix) {
+	    for (Sign pos : row) {
+	        if (pos == null) {
+		    out = false;
+		    break;
+		}
+	    }
+	}
+	
+	return out;
+    }
+    
     @Override
     public String toString() {
     

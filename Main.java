@@ -26,20 +26,47 @@ public class Main {
 	// DEBUG ...
 	System.out.println(e);
 	
+	
 	/*
-	 * For making the game more fluent ...and more
-	 * game also, it would not be a bad idea using
-	 * a for loop like
-	 * `for (;e.update();) {
-	 *      // Get p1 choice
-	 *      // code here...
-	 *      p1.tic(...);
-	 *
-	 *     // Get p2 choice
-	 *     // code here...
-	 *     p2.tic(...);
-	 *  }`
+	 * This loop is here just for giving few ideas.
+	 * It's not stable, neither good-looking ...
 	 */
+	/*
+        for (
+	        Scanner in = new Scanner(System.in), lineBuffer;
+	        !e.getTable().isFull();
+		e.update(), System.out.println(e)
+	    )
+        {
+	
+	    try {
+	    System.out.println("Type the first player choice. Format's: ...,...");
+	
+	    // Get p1 choice
+	    lineBuffer = new Scanner(in.next());
+	    lineBuffer.useDelimiter(",");
+	    int r1 = Integer.parseInt(lineBuffer.next());
+	    int c1 = Integer.parseInt(lineBuffer.next());
+	    p1.tic(r1, c1);
+	 
+    	    System.out.println("Type the second player choice. Format's: ...,...");
+	 
+	    // Get p2 choice
+	    lineBuffer = new Scanner(in.next());
+	    lineBuffer.useDelimiter(",");
+	    int r2 = Integer.parseInt(lineBuffer.next());
+	    int c2 = Integer.parseInt(lineBuffer.next());
+	    p2.tic(r2, c2);
+	    } catch (NoSuchElementException ex) {
+	        //...
+		break;
+	    } catch (ArrayIndexOutOfBoundsException ex) {
+	        //...
+		break;
+	    }
+	    
+	}
+	*/
 	
     }
 
