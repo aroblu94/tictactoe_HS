@@ -6,9 +6,17 @@ public class Table {
 	/*
 	 * Need to populate the core-matrix
 	 * of Sign obj's.
+	 * ...
 	 */
-	 ...
 	
+    }
+    
+    public void set(Move m) {
+        try {
+            this.matrix[m.getR() -1][m.getC() -1] = new Sign('*');
+	} catch (NullPointerException e) {
+	    //...
+	}
     }
     
     @Override
@@ -20,8 +28,26 @@ public class Table {
 	 * Think about what kind of symbols
 	 * you want to use, and append them
 	 * properly.
+	 * ...
 	 */
-	 ...
+	 
+	 /*
+	  * We're now using a map-like way
+	  * to present the table, since we
+	  * are still designing the game.
+	  */
+	 for (int r = 0; r < this.nr; r++) {
+	     for (int c = 0; c < this.nc; c++) {
+	         sb.append("(" + (r+1) + "," + (c+1) + ") -> " + this.matrix[r][c]);
+		 sb.append("\n");
+	     }
+	     
+	     if (r < this.nr -1) {
+	         sb.append("\n");
+             }
+	 } 
+	 
+	 return sb.toString();
 		
     }
     

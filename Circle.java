@@ -1,8 +1,7 @@
 public class Circle extends Sign {
 
-    @Override
-    public String toString() {
-        return "O";
+    public Circle() {
+        super('O');
     }
 
 }
