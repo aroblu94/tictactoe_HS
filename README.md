@@ -10,6 +10,8 @@ at the moment of this writing at least.
 *Note*: Program still does not give you the chance
 of playing. It's on developement!
 
+**Sample output**:
+
 
     Player@13caecd, Last choice: (1,1)
     Player@f84386, Last choice: (2,3)
@@ -19,3 +21,6 @@ of playing. It's on developement!
     =====
      | | 
     =====
+
+You can simply launch it via `go`, a script
+provided in this repository.
