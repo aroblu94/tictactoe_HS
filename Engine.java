@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Engine {
 
     public Engine(Player p1, Player p2, Table t) {
@@ -7,8 +9,8 @@ public class Engine {
     }
     
     public void update() {
-        t.set(p1.getMovement());
-	t.set(p2.getMovement());
+        t.set(p1.getMovement(), p1.getSign());
+	t.set(p2.getMovement(), p2.getSign());
     }
     
     @Override
@@ -20,9 +22,20 @@ public class Engine {
 	
 	return sb.toString();
     }
+
+    
     
     private Player p1;
     private Player p2;
     private Table t;
 
+    /*
+     * Here the static-context. This should be re-thought!
+     */
+    private static Sign[] listOfSigns = {new Cross(), new Circle()};
+    private static int counter = 0;
+    
+    public static Sign getNewSign() {
+        return listOfSigns[counter++];
+    }
 }

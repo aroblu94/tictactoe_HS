@@ -1,11 +1,19 @@
 public class Player {
     
+    public Player(Sign s) {
+        this.s = s;
+    }
+    
     public void tic(int r, int c) {
         this.movement = new Move(r, c);
     }
     
     public Move getMovement() {
         return this.movement;
+    }
+    
+    public Sign getSign() {
+        return this.s;
     }
     
     @Override
@@ -21,5 +29,6 @@ public class Player {
     }
     
     private Move movement;
+    private Sign s;
 
 }

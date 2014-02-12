@@ -11,9 +11,12 @@ public class Table {
 	
     }
     
-    public void set(Move m) {
+    public void set(Move m, Sign s) {
         try {
-            this.matrix[m.getR() -1][m.getC() -1] = new Sign('*');
+            if(this.matrix[m.getR() -1][m.getC() -1] != null)
+	        return;
+
+	    this.matrix[m.getR() -1][m.getC() -1]= s;
 	} catch (NullPointerException e) {
 	    //...
 	}
@@ -25,17 +28,59 @@ public class Table {
         StringBuilder sb = new StringBuilder();
 
         /*
-	 * Think about what kind of symbols
-	 * you want to use, and append them
-	 * properly.
-	 * ...
+	 * Pretty printing here ...
 	 */
+        for (int r = 0; r < this.nr; r++) {
+	     for (int c = 0; c < this.nc; c++) {
+	     
+	         /*
+		  * If the current position is not
+		  * already set, does not print 'null'
+		  * but just a white-space instead ...
+		  */
+	         if (matrix[r][c] != null) {
+		     sb.append(matrix[r][c]);
+		 } else {
+		     sb.append(" ");
+		 }
+		 
+		 /*
+		  * After every element, except the last one
+		  * for each row, print a bar ...
+		  */
+		 if (c < this.nc -1) {
+		     sb.append("|");
+		 }
+	     }
+	     
+	     /*
+	      * Always append a newline character, once
+	      * you've printed an entire row ...
+	      */
+	     sb.append("\n");
+	     
+	     /*
+	      * Print a line of '=', as a separator ...
+	      */
+	     for (int counter = 0; counter++ < this.nc + this.nc -1;)
+	         sb.append("=");
+	     
+	     /*
+	      * If you're printing the last row, does not append
+	      * a newline character. That's for giving people
+	      * using this class the possibility of using
+	      * System.out.println() withouth bothering
+	      * too much about hidden empty line that
+	      * magically appear at runtime ...
+	      */ 
+             if (r < this.nr -1)
+	         sb.append("\n");
+	}
 	 
 	 /*
 	  * We're now using a map-like way
 	  * to present the table, since we
 	  * are still designing the game.
-	  */
 	 for (int r = 0; r < this.nr; r++) {
 	     for (int c = 0; c < this.nc; c++) {
 	         sb.append("(" + (r+1) + "," + (c+1) + ") -> " + this.matrix[r][c]);
@@ -45,7 +90,8 @@ public class Table {
 	     if (r < this.nr -1) {
 	         sb.append("\n");
              }
-	 } 
+	 }
+	 */ 
 	 
 	 return sb.toString();
 		
