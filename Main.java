@@ -26,6 +26,21 @@ public class Main {
 	// DEBUG ...
 	System.out.println(e);
 	
+	/*
+	 * For making the game more fluent ...and more
+	 * game also, it would not be a bad idea using
+	 * a for loop like
+	 * `for (;e.update();) {
+	 *      // Get p1 choice
+	 *      // code here...
+	 *      p1.tic(...);
+	 *
+	 *     // Get p2 choice
+	 *     // code here...
+	 *     p2.tic(...);
+	 *  }`
+	 */
+	
     }
 
 }
