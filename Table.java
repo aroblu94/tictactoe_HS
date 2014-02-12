@@ -5,7 +5,7 @@ public class Table {
 	
 	/*
 	 * Need to populate the core-matrix
-	 * of instances of Sign obj's.
+	 * of Sign obj's.
 	 */
 	 ...
 	
@@ -25,7 +25,7 @@ public class Table {
 		
     }
     
-    // Table is wrapper for a double-dimensional
+    // Table is a wrapper for a double-dimensional
     // array of Sign objects ...
     private Sign[][] matrix;
     
