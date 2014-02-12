@@ -3,12 +3,6 @@ public class Table {
     public Table() {
         this.matrix = new Sign[3][3];
 	
-	/*
-	 * Need to populate the core-matrix
-	 * of Sign obj's.
-	 * ...
-	 */
-	
     }
     
     public void set(Move m, Sign s) {
@@ -78,9 +72,11 @@ public class Table {
 	}
 	 
 	 /*
-	  * We're now using a map-like way
-	  * to present the table, since we
-	  * are still designing the game.
+	  * Decomment for using a map-like way
+	  * to represent the table. I found that
+	  * useful at the beginnin.
+	  */
+	 /* 
 	 for (int r = 0; r < this.nr; r++) {
 	     for (int c = 0; c < this.nc; c++) {
 	         sb.append("(" + (r+1) + "," + (c+1) + ") -> " + this.matrix[r][c]);
