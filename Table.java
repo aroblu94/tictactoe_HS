@@ -1,4 +1,6 @@
-public class Table {
+import java.util.*;
+
+public class Table /*implements Iterable<Sign>*/ {
 
     public Table() {
         this.matrix = new Sign[3][3];
@@ -16,6 +18,42 @@ public class Table {
 	}
     }
     
+    public Sign get(Move m) {
+        return this.matrix[m.getR() -1][m.getC() -1];
+    }
+
+    /*
+    public Iterator<Sign> iterator() {
+    
+        final Sign[][] tmpMatrix = this.matrix;
+    
+        Iterator<Sign> it = new Iterator<Sign>() {
+	
+	    @Override
+	    public boolean hasNext() {
+	        // Code here ...
+	    }
+	    
+	    @Override
+	    public Sign next() {
+	        // Code here ...
+	    }
+	    
+	    @Override
+	    public void remove() {
+	        // Code here ...
+	    }
+	    
+    	    private int r = 0;	
+	    private int c = 0;
+	   
+	};
+	
+	return it;
+    
+    }
+    */
+
     public boolean isFull() {
         boolean out = true;
 	
@@ -30,15 +68,12 @@ public class Table {
 	
 	return out;
     }
-    
+
     @Override
     public String toString() {
     
         StringBuilder sb = new StringBuilder();
 
-        /*
-	 * Pretty printing here ...
-	 */
         for (int r = 0; r < this.nr; r++) {
 	     for (int c = 0; c < this.nc; c++) {
 	     
@@ -55,7 +90,7 @@ public class Table {
 		 
 		 /*
 		  * After every element, except the last one
-		  * for each row, print a bar ...
+		  * print a bar for each row...
 		  */
 		 if (c < this.nc -1) {
 		     sb.append("|");
@@ -63,16 +98,11 @@ public class Table {
 	     }
 	     
 	     /*
-	      * Always append a newline character, once
-	      * you've printed an entire row ...
+	      * Once you've printed an entire row
+	      * always append a newline character...
 	      */
-	     sb.append("\n");
 	     
-	     /*
-	      * Print a line of '=', as a separator ...
-	      */
-	     for (int counter = 0; counter++ < this.nc + this.nc -1;)
-	         sb.append("=");
+	     //sb.append("\n");
 	     
 	     /*
 	      * If you're printing the last row, does not append
@@ -81,9 +111,12 @@ public class Table {
 	      * System.out.println() withouth bothering
 	      * too much about hidden empty line that
 	      * magically appear at runtime ...
-	      */ 
-             if (r < this.nr -1)
+	      */
+             if (r < this.nr -1) {
 	         sb.append("\n");
+	         for (int counter = 0; counter++ < this.nc + this.nc -1; sb.append("="));
+	         sb.append("\n");
+             }
 	}
 	 
 	 /*
@@ -106,6 +139,14 @@ public class Table {
 	 
 	 return sb.toString();
 		
+    }
+    
+    public int getNumberRows() {
+        return nr;
+    }
+    
+    public int getNumberColumns() {
+        return nc;
     }
     
     // Table is a wrapper for a double-dimensional
