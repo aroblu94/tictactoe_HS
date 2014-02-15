@@ -25,13 +25,17 @@ public class Player {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-		sb.append(super.toString());
-	
-		sb.append(", ");
-	
-		sb.append("Last choice: ");// + this.movement);
+		sb.append("Player " + this.s.toString());
 	
 		return sb.toString();
     }
+
+	public String lastChoice() {
+		StringBuilder stb = new StringBuilder();
+		stb.append(this.toString() + ", last choice: " ); // + this.movement);
+
+
+		return stb.toString();
+	}
 
 }

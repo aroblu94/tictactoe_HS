@@ -1,4 +1,4 @@
-public class Sign {
+public abstract class Sign {
 
 	//CAMPI
     private char c;

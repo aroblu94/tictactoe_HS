@@ -55,7 +55,8 @@ public class Engine {
         for (Scanner in = new Scanner(System.in), lineBuffer; 
 			!this.t.isFull(); this.update(), System.out.println(this)) {
 			try {
-				System.out.println("Type the first player choice. Format's: ...,...");
+				System.out.println(p1.toString());
+				System.out.println("Type your choice. Format's: ...,...");
 	
 				// Get p1 choice
 				lineBuffer = new Scanner(in.next());
@@ -64,6 +65,7 @@ public class Engine {
 				int c1 = Integer.parseInt(lineBuffer.next());
 				this.p1.tic(r1, c1);
 			 
+				System.out.println(p2.toString());
 				System.out.println("Type the second player choice. Format's: ...,...");
 			 
 				// Get p2 choice
@@ -83,7 +85,7 @@ public class Engine {
 	    	}
 	    
 		}
-	
+
 		System.out.println(this);
 	
     }
@@ -92,12 +94,12 @@ public class Engine {
         return this.t;
     }
     
-    @Override
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
-		sb.append(p1 + "\n");
-		sb.append(p2 + "\n");
-		sb.append(t);
+		sb.append(p1.lastChoice() + "\n");
+		sb.append(p2.lastChoice() + "\n");
+		sb.append(t + "\n");
 	
 		return sb.toString();
     }
