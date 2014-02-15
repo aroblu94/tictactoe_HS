@@ -4,7 +4,7 @@ public class Engine {
 
     public Engine(Player p1, Player p2, Table t) {
         this.p1 = p1;
-	this.p2 = p2;
+		this.p2 = p2;
         this.t = t;
     }
     
@@ -44,42 +44,51 @@ public class Engine {
 
 		while(1==1) {
 			if(t.isFull()==false) { 
-				System.out.println("Type the first player choice. Format's: ...,...");
+				System.out.println("Type the first player (X) choice. Format's: x,y");
 	
 				// Get p1 choice
 				lineBuffer = new Scanner(in.next());
 				lineBuffer.useDelimiter(",");
 				int r1 = Integer.parseInt(lineBuffer.next());
 				int c1 = Integer.parseInt(lineBuffer.next());
-				this.p1.tic(r1, c1);
-				count = count + 1;
+				//if(t.getMatrix()[r1][c1] instanceof Sign)
+				//	System.out.println("Posizione occupata! ");
+				//else {
+					this.p1.tic(r1, c1);
+					count = count + 1;
+					this.update();
+					System.out.println(this);
+					System.out.println();
+				//}					
 				if(t.isFull()==false) { 
-					System.out.println("Type the second player choice. Format's: ...,...");
+					System.out.println("Type the second player (O) choice. Format's: x,y");
 					// Get p2 choice
 					lineBuffer = new Scanner(in.next());
 					lineBuffer.useDelimiter(",");
 					int r2 = Integer.parseInt(lineBuffer.next());
 					int c2 = Integer.parseInt(lineBuffer.next());
-					this.p2.tic(r2, c2);
-					count = count + 1;
+					//if(t.getMatrix()[r2][c2] instanceof Sign)
+					//	System.out.println("Posizione occupata! ");
+					//else {
+						this.p2.tic(r2, c2);
+						count = count + 1;
+						this.update();
+						System.out.println(this);
+						System.out.println();
+					//}	
 				}
 				else {
+					System.out.println();
 					System.out.println("ATTENZIONE!! Partita finita! ");
-					this.update();
-					System.out.println(this);
 					System.exit(0);
 					break;
 				}
 			}
 			else {
 				System.out.println("ATTENZIONE!! Partita finita! ");
-				this.update();
-				System.out.println(this);
 				System.exit(0);
 				break;
 			}
-			this.update();
-			System.out.println(this);
 		}
 	
     }
@@ -91,11 +100,12 @@ public class Engine {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-	sb.append(p1 + "\n");
-	sb.append(p2 + "\n");
-	sb.append(t);
+		sb.append(p1 + "\n");
+		sb.append(p2 + "\n");
+		sb.append(" \n");
+		sb.append(t);
 	
-	return sb.toString();
+		return sb.toString();
     }
 
     

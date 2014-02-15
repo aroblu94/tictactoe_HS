@@ -19,13 +19,13 @@ public class Player {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-	sb.append(super.toString());
+		sb.append("Player " + this.s);
 	
-	sb.append(", ");
+		sb.append(", ");
 	
-	sb.append("Last choice: " + this.movement);
+		sb.append("last choice: " + this.movement);
 	
-	return sb.toString();
+		return sb.toString();
     }
     
     private Move movement;

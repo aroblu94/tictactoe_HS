@@ -141,6 +141,10 @@ public class Table /*implements Iterable<Sign>*/ {
     public int getNumberColumns() {
         return nc;
     }
+
+	public Sign[][] getMatrix() {	//per poter fare il controllo delle posizioni in Engine
+		return this.matrix;
+	}
     
     // Table is a wrapper for a double-dimensional
     // array of Sign objects ...
