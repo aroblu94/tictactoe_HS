@@ -1,16 +1,14 @@
-public abstract class Sign {
+public class Sign {
 
-	//CAMPI
-    private char c;
-
-	//COSTRUTTORE
     public Sign(char c) {
         this.c = c;
     }
 
-	//METODI
+    @Override
     public String toString() {
         return Character.toString(this.c);
     }
+    
+    private char c;
 
 }
