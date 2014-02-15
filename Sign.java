@@ -1,14 +1,16 @@
 public class Sign {
 
+	//CAMPI
+    private char c;
+
+	//COSTRUTTORE
     public Sign(char c) {
         this.c = c;
     }
 
-    @Override
+	//METODI
     public String toString() {
         return Character.toString(this.c);
     }
-    
-    private char c;
 
 }
