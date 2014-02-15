@@ -31,6 +31,17 @@ public class Engine {
 	        Scanner in = new Scanner(System.in);
 			Scanner lineBuffer;
 
+	/*
+	 * Metto tutto in un ciclo infinito (while 1=1)
+	 * e ad ogni mossa controllo che la tabella non sia piena
+	 * se non è piena aumenta il count di 1 e passa alla seconda mossa
+	 * e così via...
+	 * il controllo lo fa la tabella stessa.
+	 * il segnale di isFull viene inviato quando count = 9
+	 * e a questo punto gli faccio stampare tutto per l'ultima volta
+	 * e chiudo il programma con un bell System.exit(0) 
+	 */
+
 		while(1==1) {
 			if(t.isFull()==false) { 
 				System.out.println("Type the first player choice. Format's: ...,...");
