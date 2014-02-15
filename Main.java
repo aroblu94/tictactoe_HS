@@ -11,7 +11,10 @@ public class Main {
 	Engine e = new Engine(p1, p2, t);
 	
 	e.play();
-	
+
+	/*for(Sign s : t) {
+		if 
+	*/
     }
 
 }

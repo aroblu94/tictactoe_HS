@@ -55,18 +55,11 @@ public class Table /*implements Iterable<Sign>*/ {
     */
 
     public boolean isFull() {
-        boolean out = true;
-	
-	for (Sign[] row : this.matrix) {
-	    for (Sign pos : row) {
-	        if (pos == null) {
-		    out = false;
-		    break;
-		}
-	    }
-	}
-	
-	return out;
+        if (Engine.count==9)
+			isFull = true;
+		else 
+			isFull = false;
+		return isFull;
     }
 
     @Override
@@ -152,6 +145,7 @@ public class Table /*implements Iterable<Sign>*/ {
     // Table is a wrapper for a double-dimensional
     // array of Sign objects ...
     private Sign[][] matrix;
+	private boolean isFull = false;
     
     // Program is designed to work with this
     // fixed value (nr, nc), since generally
