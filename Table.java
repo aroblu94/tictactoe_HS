@@ -7,7 +7,6 @@ public class Table implements Iterable<Sign> {
     // array of Sign objects ...
     private Sign[][] matrix;
 
-	private final boolean debug = true;
     
     // Program is designed to work with this
     // fixed value (nr, nc), since generally
@@ -47,8 +46,6 @@ public class Table implements Iterable<Sign> {
             private int c = 0;
 	
 			public boolean hasNext() {              
-				if (debug) 
-					System.out.println("Looking for a new value ...");
 		
                 boolean out = true;
                 try {
@@ -58,15 +55,11 @@ public class Table implements Iterable<Sign> {
                     out = false;
                 } 	
 				finally {
-		    		if (debug) 
-						System.out.println("New value found: " + out);
                     return out;
                 }
 			}
 			
 			public Sign next() {
-				if (debug) 
-					System.out.println(r+","+c);
 
                 Sign out = null;
                 
