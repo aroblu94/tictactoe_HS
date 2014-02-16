@@ -1,55 +1,46 @@
-Tic-Tac-Toe, in Java
-====================
+Version 0.3 (Tic-Tac-Toe)
+=========================
 
-Writing a little engine that gives the user the
-possibility of playing the classic *Tic-Tac-Toe*.
-It's implemented in Java since I feel quite
-confortable with that language and with OOP-concepts,
-at the moment of this writing at least.
+**TODO** list:
 
-**Sample output**:
+* Changing design of `Table`: instead of using
+`Move`, we're going to use a new class `Position`
+-- hence `Table` should be made of `Position`'s instead
+of `Sign`'s.
+* It should be clearer that `Move` is `Player`'s
+intention.
+* We should prevent `Player`'s to choose a `Position`
+already set, possibly giving it the chance of choosing
+another `Position`.
+* If `Player` `p1` wins choosing one position, `p2`
+should **not** have its chance and game should
+terminate.
+* Providing a CPU-like player, hence method `tic()`
+should be rethought -- means that we should provide
+`tic` with parameters and without param's both.
+* Providing both `StupidCPU` and `SmartCPU`, such
+that `StupidCPU` can be used for testing. It will
+make random choices.
+* Making the `toString()` method easier to read
+* Taking care of exceptions
+* If the match ends with no winner, program outputs
+there's a winner in any case. Wrong.
+* ***Wrong input format can't make the program crash!***
 
-    Type the first player choice. Format's: ...,...
-    1,1
-    Type the second player choice. Format's: ...,...
-    1,2
-    Player@145e044, Last choice: (1,1)
-    Player@86c347, Last choice: (1,2)
-    (1,1) -> X
-    (1,2) -> O
-    (1,3) ->  
+*Note*:
+* `Sign` < `Position` < `Table` < `Engine`
 
-    (2,1) ->  
-    (2,2) ->  
-    (2,3) ->  
+At first `Engine` checks if there's enough space to
+play (i.e. if `Table` is not full). If so ...
+* `Player` must only provide a `Movement`, telling
+`Engine` where he wants to put his sign. Then `Engine`
+must:
+    * Check if `Position` is already *signed*. If so
+`Engine` ask again to provide another (and **different**)
+`Movement`. Once `Player` provides a free `Position`,
+`Engine` checks if he has won. If not, ask the other
+`Player` the same as it has done with the first.
+    * Everytime he has ask user to provide a movement
+`Engine` must print the current state of `Table`.
 
-    (3,1) ->  
-    (3,2) ->  
-    (3,3) ->  
-
-    # Other similar output here ...
-    #...
-    #...
-
-    Type the first player choice. Format's: ...,...
-    3,1
-    Type the second player choice. Format's: ...,...
-    2,2
-    Player@145e044, Last choice: (3,1)
-    Player@86c347, Last choice: (2,2)
-    (1,1) -> X
-    (1,2) -> O
-    (1,3) -> O
-
-    (2,1) -> X
-    (2,2) -> O
-    (2,3) ->  
-
-    (3,1) -> X
-    (3,2) ->  
-    (3,3) ->  
-
-    Winner is: Player@145e044, Last choice: (3,1)
-
-You can simply launch it via `go`, a script
-provided in this repository.
+* `Movement` < `Player` < `Engine`
